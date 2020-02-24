@@ -1,0 +1,15 @@
+{
+  "name": "ld-zazuko-com",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "trifid": "^2.3.3"
+  },
+  "devDependencies": {},
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "trifid --config config.json",
+    "start-local": "trifid --config config.local.json"
+  }
+}
