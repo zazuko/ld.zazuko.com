@@ -5,7 +5,7 @@ WORKDIR /app
 # Copy the package.json and install the dependencies
 COPY package*.json ./
 RUN npm ci --only=production
-COPY config.json .
+COPY . .
 
 USER nobody:nobody
 
