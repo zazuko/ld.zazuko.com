@@ -4,14 +4,27 @@ metadata:
   name: trifid
   annotations:
     kubernetes.io/tls-acme: "true"
-    external-dns.alpha.kubernetes.io/hostname: ld-zazuko-com.zazuko.net
+    external-dns.alpha.kubernetes.io/hostname: ld-zazuko-com.zazuko.net,data-ptt-archiv-ch.zazuko.net
 spec:
   tls:
     - secretName: ld-zazuko-com-cert
       hosts:
         - ld.zazuko.com
+    - secretName: data-ptt-archiv-ch-cert
+      hosts:
+        - data.ptt-archiv.ch
   rules:
     - host: ld.zazuko.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: trifid
+                port:
+                  number: 80
+    - host: data.ptt-archiv.ch
       http:
         paths:
           - path: /
