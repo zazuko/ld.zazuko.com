@@ -1,8 +1,7 @@
 {
   "name": "ld-zazuko-com",
+  "private": true,
   "version": "0.0.8",
-  "description": "",
-  "main": "index.js",
   "dependencies": {
     "trifid": "^2.3.4"
   },
