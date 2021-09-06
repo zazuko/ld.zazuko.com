@@ -20,7 +20,7 @@ spec:
 
           env:
             - name: SPARQL_ENDPOINT_URL
-              value: http://data.zazuko.com/zazuko/query
+              value: https://data.zazuko.com/zazuko/query
 
           livenessProbe:
             httpGet:

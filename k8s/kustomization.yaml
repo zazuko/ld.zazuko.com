@@ -4,10 +4,8 @@ kind: Kustomization
 namespace: ld-zazuko-com
 
 commonLabels:
-  app.kubernetes.io/instance: ld.zazuko.com
   app.kubernetes.io/name: trifid
 
 resources:
-  - deployment.yaml
-  - service.yaml
-  - ingress.yaml
+  - cached/
+  - live/
