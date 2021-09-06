@@ -1,6 +1,6 @@
 {
   "baseConfig": "trifid:config-sparql.json",
-  "sparqlEndpointUrl": "http://data.zazuko.com/zazuko/query",
+  "sparqlEndpointUrl": "env:SPARQL_ENDPOINT_URL",
   "sparqlEndpointAuthentication": {
     "user": "public",
     "password": "public"

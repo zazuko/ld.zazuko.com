@@ -18,6 +18,10 @@ spec:
               containerPort: 8080
               protocol: TCP
 
+          env:
+            - name: SPARQL_ENDPOINT_URL
+              value: http://data.zazuko.com/zazuko/query
+
           livenessProbe:
             httpGet:
               path: /health
