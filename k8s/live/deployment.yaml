@@ -20,7 +20,8 @@ spec:
 
           env:
             - name: SPARQL_ENDPOINT_URL
-              value: https://data.zazuko.com/zazuko/query
+              # TODO: switch back to https once we figured out why it is a problem
+              value: http://data.zazuko.com/zazuko/query
 
           livenessProbe:
             httpGet:
