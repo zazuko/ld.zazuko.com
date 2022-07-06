@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.11",
   "dependencies": {
-    "trifid": "^2.3.4"
+    "trifid": "^2.3.10"
   },
   "devDependencies": {},
   "license": "UNLICENSED",
