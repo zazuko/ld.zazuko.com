@@ -1,4 +1,4 @@
-FROM docker.io/library/node:16-alpine
+FROM docker.io/library/node:18-alpine
 
 # build the app
 WORKDIR /app
