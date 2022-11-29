@@ -6,7 +6,6 @@
   "dependencies": {
     "@zazuko/trifid-plugin-sparql-proxy": "^0.1.2",
     "@zazuko/trifid-renderer-entity": "^0.0.4",
-    "camouflage-rewrite": "^1.4.0",
     "sparql-proxy": "^2.2.2",
     "trifid-core": "^2.0.0",
     "trifid-handler-fetch": "^2.0.1",
