@@ -6,6 +6,13 @@ middlewares:
     config:
       path: views/welcome.hbs
 
+  parameters:
+    module: trifid-core/middlewares/view.js
+    paths: /parameters
+    methods: GET
+    config:
+      path: views/parameters.hbs
+
   entity-renderer:
     module: "@zazuko/trifid-renderer-entity"
 
