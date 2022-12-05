@@ -12,6 +12,7 @@
   },
   "license": "UNLICENSED",
   "scripts": {
-    "start": "trifid-core"
+    "start": "trifid-core",
+    "ci": "echo hello there!"
   }
 }
