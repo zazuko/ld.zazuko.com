@@ -35,7 +35,6 @@ middlewares:
   sparql-handler:
     module: trifid-handler-sparql
     config:
-      endpointUrl: env:SPARQL_ENDPOINT_URL
       resourceExistsQuery: "ASK { GRAPH ?g { <${iri}> ?p ?o } }"
       resourceGraphQuery: "#pragma describe.strategy cbd\nDESCRIBE <${iri}>"
       containerExistsQuery: 'ASK { GRAPH ?g { ?s a ?o. FILTER REGEX(STR(?s), "^${iri}") } }'
