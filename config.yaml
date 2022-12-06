@@ -34,6 +34,9 @@ middlewares:
         password: env:SPARQL_ENDPOINT_PASSWORD
       queryOperation: postQueryUrlencoded
 
+  handle-redirects-demo:
+    module: file:./redirects.js
+
   sparql-handler:
     module: trifid-handler-sparql
     config:
