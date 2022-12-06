@@ -6,7 +6,7 @@
   "dependencies": {
     "@zazuko/trifid-plugin-sparql-proxy": "^0.1.3",
     "@zazuko/trifid-renderer-entity": "^0.2.2",
-    "trifid-core": "^2.1.1",
+    "trifid-core": "^2.2.0",
     "trifid-handler-sparql": "^2.0.3",
     "trifid-plugin-yasgui": "^2.1.0",
     "debug": "^4.3.4",
@@ -14,6 +14,7 @@
   },
   "license": "UNLICENSED",
   "scripts": {
-    "start": "trifid-core"
+    "start": "trifid-core",
+    "start-local": "DEBUG=http,trifid:* trifid-core -c config-local.yaml"
   }
 }

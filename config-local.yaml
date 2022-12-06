@@ -1,6 +1,16 @@
+server:
+  logLevel: debug
+
+template:
+  title: Trifid Playground
+
+globals:
+  datasetBaseUrl: https://ld.zazuko.com/
+
 middlewares:
   welcome:
     module: trifid-core/middlewares/view.js
+    order: 0
     paths: /
     methods: GET
     config:
@@ -8,10 +18,15 @@ middlewares:
 
   parameters:
     module: trifid-core/middlewares/view.js
+    order: 0
     paths: /parameters
     methods: GET
     config:
       path: views/parameters.hbs
+
+  rewrite:
+    module: trifid-core/middlewares/rewrite.js
+    order: 1
 
   entity-renderer:
     module: "@zazuko/trifid-renderer-entity"
@@ -26,10 +41,7 @@ middlewares:
     module: "@zazuko/trifid-plugin-sparql-proxy"
     paths: /query
     config:
-      endpointUrl: env:SPARQL_ENDPOINT_URL
-      authentication:
-        user: env:SPARQL_ENDPOINT_USER
-        password: env:SPARQL_ENDPOINT_PASSWORD
+      endpointUrl: https://ld.zazuko.com/query
       queryOperation: postQueryUrlencoded
 
   sparql-handler:
