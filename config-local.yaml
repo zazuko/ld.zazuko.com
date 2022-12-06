@@ -1,0 +1,41 @@
+middlewares:
+  welcome:
+    module: trifid-core/middlewares/view.js
+    paths: /
+    methods: GET
+    config:
+      path: views/welcome.hbs
+
+  parameters:
+    module: trifid-core/middlewares/view.js
+    paths: /parameters
+    methods: GET
+    config:
+      path: views/parameters.hbs
+
+  entity-renderer:
+    module: "@zazuko/trifid-renderer-entity"
+
+  yasgui:
+    module: trifid-plugin-yasgui
+    paths: /sparql
+    config:
+      urlShortener: https://s.zazuko.com/api/v1/shorten
+
+  sparql-proxy:
+    module: "@zazuko/trifid-plugin-sparql-proxy"
+    paths: /query
+    config:
+      endpointUrl: env:SPARQL_ENDPOINT_URL
+      authentication:
+        user: env:SPARQL_ENDPOINT_USER
+        password: env:SPARQL_ENDPOINT_PASSWORD
+      queryOperation: postQueryUrlencoded
+
+  sparql-handler:
+    module: trifid-handler-sparql
+    config:
+      resourceExistsQuery: "ASK { GRAPH ?g { <${iri}> ?p ?o } }"
+      resourceGraphQuery: "#pragma describe.strategy cbd\nDESCRIBE <${iri}>"
+      containerExistsQuery: 'ASK { GRAPH ?g { ?s a ?o. FILTER REGEX(STR(?s), "^${iri}") } }'
+      containerGraphQuery: 'CONSTRUCT { ?s a ?o. ?s <http://schema.org/name> ?label. } WHERE { GRAPH ?g {  ?s a ?o. OPTIONAL {?s <http://schema.org/name> ?label. } } FILTER REGEX(STR(?s), "^${iri}") }'
