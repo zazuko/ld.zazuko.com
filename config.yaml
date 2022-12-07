@@ -25,9 +25,7 @@ middlewares:
       path: views/parameters.hbs
 
   rewrite:
-    #   module: trifid-core/middlewares/rewrite.js
-    #   order: 1
-    module: file:rewrite.js
+    module: trifid-core/middlewares/rewrite.js
     order: 12
 
   entity-renderer:
