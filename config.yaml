@@ -29,6 +29,12 @@ middlewares:
     module: "@zazuko/trifid-renderer-entity"
     config:
       path: views/entity.hbs
+      labelLoader:
+        labelNamespace: https://ld.zazuko.com
+        endpointUrl: env:SPARQL_ENDPOINT_URL
+        chunkSize: 30
+        concurrency: 2
+        timeout: 1000
 
   yasgui:
     module: trifid-plugin-yasgui
