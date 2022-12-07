@@ -1,3 +1,6 @@
+server:
+  logLevel: debug
+
 template:
   title: Trifid Playground
 
@@ -23,7 +26,7 @@ middlewares:
 
   rewrite:
     module: trifid-core/middlewares/rewrite.js
-    order: 1
+    order: 12
 
   entity-renderer:
     module: "@zazuko/trifid-renderer-entity"
