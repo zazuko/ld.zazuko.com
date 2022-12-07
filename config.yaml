@@ -31,7 +31,6 @@ middlewares:
       path: views/entity.hbs
       labelLoader:
         labelNamespace: https://ld.zazuko.com
-        endpointUrl: env:SPARQL_ENDPOINT_URL
         chunkSize: 30
         concurrency: 2
         timeout: 1000
