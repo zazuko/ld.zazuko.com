@@ -10,16 +10,30 @@ const getStream = async (stream) => {
   });
 }
 
-
 export const factory = trifid => {
-  const { logger } = trifid
+  const { config, logger } = trifid
+  const { datasetBaseUrl } = config
+
+  // do nothing if datasetBaseUrl is not defined or empty
+  if (!datasetBaseUrl) {
+    return (_req, _res, next) => {
+      return next();
+    }
+  }
+
+  // check if it is a valid URL
+  try {
+    new URL(datasetBaseUrl)
+  } catch (_e) {
+    throw new Error(`The current value you have for 'datasetBaseUrl' is '${datasetBaseUrl}', which is not a valid URL.`);
+  }
 
   return async (req, res, next) => {
-    logger.info('rewriting…')
+    const absoluteBaseUrl = new URL('/', req.absoluteUrl())
+    const currentBaseUrl = absoluteBaseUrl.toString()
 
-    console.log(req.path)
-
-    req.iri = req.iri.replaceAll('http://0.0.0.0:8080', "https://ld.zazuko.com")
+    req.iri = req.iri.replaceAll(currentBaseUrl, datasetBaseUrl)
+    logger.debug(`new IRI is ${req.iri}`)
 
     const { readable, writable } = await hijackResponse(res, next)
     if (!res.getHeaders) {
@@ -35,19 +49,8 @@ export const factory = trifid => {
       return readable.pipe(writable);
     }
 
-
     const content = await getStream(readable);
-
-
-    console.log(headers)
-
-    console.log(content);
-
-
-    console.log(req.iri)
-
-
-    return Readable.from(content.replaceAll("https://ld.zazuko.com", 'http://0.0.0.0:8080')).pipe(writable);
+    return Readable.from(content.replaceAll(datasetBaseUrl, currentBaseUrl)).pipe(writable);
   }
 }
 

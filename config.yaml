@@ -1,3 +1,6 @@
+server:
+  logLevel: debug
+
 template:
   title: Trifid Playground
 
