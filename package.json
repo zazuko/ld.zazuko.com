@@ -15,6 +15,6 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "trifid-core",
-    "start-local": "DEBUG=http,trifid:* SPARQL_ENDPOINT_URL=https://ld.zazuko.com/query trifid-core"
+    "start-local": "DEBUG=http,trifid:* SPARQL_ENDPOINT_URL=https://ld.zazuko.com/query trifid-core -c config-local.yaml"
   }
 }
