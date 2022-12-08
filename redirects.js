@@ -1,6 +1,5 @@
 import debugLib from 'debug'
 import ParsingClient from 'sparql-http-client/ParsingClient.js'
-import { resolve } from 'url'
 
 const debug = debugLib('trifid-handler-http-in-rdf')
 
@@ -17,7 +16,7 @@ const defaults = {
             ] ;
             http:requestURI <\${iri}>     
       }
-    } LIMIT 1`
+    } LIMIT 1`,
 }
 
 const authBasicHeader = (user, password) => {
@@ -37,7 +36,7 @@ export class HttpInRDFHandler {
       this.authentication.password) {
       queryOptions.headers = {
         Authorization: authBasicHeader(this.authentication.user,
-          this.authentication.password)
+          this.authentication.password),
       }
     }
     return queryOptions
@@ -83,7 +82,7 @@ export const factory = trifid => {
 
   return (req, res, next) => {
     const handler = new HttpInRDFHandler({
-      ...defaults, ...config, endpointUrl: resolve(req.absoluteUrl(), endpoint)
+      ...defaults, ...config, endpointUrl: new URL(endpoint, req.absoluteUrl()),
     })
     handler.handle(req, res, next)
   }
