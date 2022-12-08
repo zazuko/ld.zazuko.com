@@ -26,7 +26,6 @@ middlewares:
 
   rewrite:
     module: trifid-core/middlewares/rewrite.js
-    order: 12
 
   entity-renderer:
     module: "@zazuko/trifid-renderer-entity"
