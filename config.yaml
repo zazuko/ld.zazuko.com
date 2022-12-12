@@ -54,7 +54,7 @@ middlewares:
       queryOperation: postQueryUrlencoded
 
   handle-redirects-demo:
-    module: file:./redirects.js
+    module: "@zazuko/trifid-handle-redirects"
 
   sparql-handler:
     module: trifid-handler-sparql
