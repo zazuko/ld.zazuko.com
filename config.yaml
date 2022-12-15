@@ -32,7 +32,8 @@ middlewares:
     config:
       path: views/entity.hbs
       labelLoader:
-        labelNamespace: https://ld.zazuko.com
+        labelNamespaces:
+          - https://ld.zazuko.com
         chunkSize: 30
         concurrency: 2
         timeout: 1000
