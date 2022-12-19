@@ -58,9 +58,8 @@ middlewares:
     module: "@zazuko/trifid-handle-redirects"
 
   sparql-handler:
-    module: trifid-handler-sparql
+    module: file:./paginated.js
     config:
       resourceExistsQuery: "ASK { GRAPH ?g { <${iri}> ?p ?o } }"
       resourceGraphQuery: "#pragma describe.strategy cbd\nDESCRIBE <${iri}>"
       containerExistsQuery: 'ASK { GRAPH ?g { ?s a ?o. FILTER REGEX(STR(?s), "^${iri}") } }'
-      containerGraphQuery: 'CONSTRUCT { ?s a ?o. ?s <http://schema.org/name> ?label. } WHERE { GRAPH ?g {  ?s a ?o. OPTIONAL {?s <http://schema.org/name> ?label. } } FILTER REGEX(STR(?s), "^${iri}") }'
