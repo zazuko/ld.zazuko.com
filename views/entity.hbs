@@ -128,7 +128,7 @@
 
     .rows > :nth-child(2n) {
         border-top: 1px solid var(--color-light-grey);
-        background: rgba(0, 0, 0, 0.05);
+        background: rgba(0, 0, 0, 0.01);
     }
 
     .rows .row {
@@ -210,18 +210,30 @@
     }
 
     .metadata {
-        border: var(--color-light-grey) solid 1px;
-        font-size: 0.7rem;
-    }
-
-    .metadata h3 {
-        text-align: center;
-        color: var(--color-grey);
-    }
-
-    .metadata table {
+        display: table;
+        border: #666666 solid 1px;
+        margin-top: 20px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .metadata-title {
+        display: table-row;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .metadata-table {
+        display: table-row-group;
+    }
+
+    .metadata-row {
+        display: table-row;
+    }
+
+    .metadata-row > div {
+        display: table-cell;
+        padding: 10px;
     }
 
     .img-container {
@@ -233,10 +245,52 @@
         max-width: 100%;
     }
 
+    /*Metadata CSS*/
+
+    .metadata {
+        display: table;
+        border: #cac9c9 solid 1px;
+        margin: 20px auto;
+    }
+
+    .metadata-title {
+        display: table-row;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .metadata-table {
+        display: table-row-group;
+    }
+
+    .metadata-row {
+        display: table-row;
+    }
+
+    .metadata-row > div {
+        display: table-cell;
+        padding: 5px;
+    }
+
+
 </style>
 
 <div class="trifid-content">
     <div class="container">
         {{{ dataset }}}
+
+        {{#if  metadata.namedGraphs}}
+            <div class="metadata">
+                <div class="metadata-title">Named graphs</div>
+                <div class="metadata-table">
+                    {{#each metadata.namedGraphs}}
+                        <div class="metadata-row">
+                            <div>{{this.namedGraphLabel}}</div>
+                            <div>{{this.quadsCount}}</div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/if}}
     </div>
 </div>
