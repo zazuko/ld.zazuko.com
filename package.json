@@ -5,7 +5,7 @@
   "type": "module",
   "dependencies": {
     "@zazuko/trifid-plugin-sparql-proxy": "^0.1.3",
-    "@zazuko/trifid-renderer-entity": "^0.4.6",
+    "@zazuko/trifid-renderer-entity": "^0.4.7",
     "@zazuko/trifid-handle-redirects": "^0.1.1",
     "debug": "^4.3.4",
     "sparql-http-client": "^1.2.0",
