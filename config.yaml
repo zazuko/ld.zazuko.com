@@ -56,6 +56,7 @@ middlewares:
       cache:
         prefix: env:SPARQL_PROXY_CACHE_PREFIX
         url: env:SPARQL_PROXY_CACHE_URL
+        ttl: env:SPARQL_PROXY_CACHE_TTL
         clearAtStartup: env:SPARQL_PROXY_CACHE_CLEAR_AT_STARTUP
 
   handle-redirects-demo:
