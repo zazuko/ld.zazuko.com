@@ -6,6 +6,10 @@ template:
 
 globals:
   datasetBaseUrl: https://ld.zazuko.com/
+  sparqlEndpoint:
+    url: env:SPARQL_ENDPOINT_URL
+    username: env:SPARQL_ENDPOINT_USER
+    password: env:SPARQL_ENDPOINT_PASSWORD
 
 middlewares:
   welcome:
@@ -48,10 +52,6 @@ middlewares:
     module: "@zazuko/trifid-plugin-sparql-proxy"
     paths: /query
     config:
-      endpointUrl: env:SPARQL_ENDPOINT_URL
-      authentication:
-        user: env:SPARQL_ENDPOINT_USER
-        password: env:SPARQL_ENDPOINT_PASSWORD
       queryOperation: postQueryUrlencoded
 
   handle-redirects-demo:
