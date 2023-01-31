@@ -53,6 +53,10 @@ middlewares:
     paths: /query
     config:
       queryOperation: postQueryUrlencoded
+      cache:
+        prefix: env:SPARQL_PROXY_CACHE_PREFIX
+        url: env:SPARQL_PROXY_CACHE_URL
+        clearAtStartup: env:SPARQL_PROXY_CACHE_CLEAR_AT_STARTUP
 
   handle-redirects-demo:
     module: "@zazuko/trifid-handle-redirects"
