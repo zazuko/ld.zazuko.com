@@ -63,7 +63,7 @@ middlewares:
     module: "@zazuko/trifid-handle-redirects"
 
   sparql-handler:
-    module: file:./paginated.js
+    module: "trifid-handler-sparql"
     config:
       resourceExistsQuery: "ASK { GRAPH ?g { <${iri}> ?p ?o } }"
       resourceGraphQuery: "#pragma describe.strategy cbd\nDESCRIBE <${iri}>"
