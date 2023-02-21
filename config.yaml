@@ -59,6 +59,9 @@ middlewares:
         ttl: env:SPARQL_PROXY_CACHE_TTL
         clearAtStartup: env:SPARQL_PROXY_CACHE_CLEAR_AT_STARTUP
 
+  handle-redirects-demo:
+    module: "@zazuko/trifid-handle-redirects"
+
   sparql-handler:
     module: "trifid-handler-sparql"
     config:
