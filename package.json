@@ -4,17 +4,11 @@
   "version": "1.2.8",
   "type": "module",
   "dependencies": {
-    "@zazuko/trifid-plugin-sparql-proxy": "^1.1.0",
-    "@zazuko/trifid-renderer-entity": "^0.4.10",
-    "@zazuko/trifid-handle-redirects": "^0.1.2",
-    "debug": "^4.3.4",
-    "trifid-core": "^2.5.2",
-    "trifid-handler-sparql": "^2.1.1",
-    "trifid-plugin-yasgui": "^2.2.1"
+    "trifid": "^4.0.2"
   },
   "license": "UNLICENSED",
   "scripts": {
-    "start": "trifid-core",
-    "start-local": "DEBUG=http,trifid:* SPARQL_ENDPOINT_URL=https://ld.zazuko.com/query trifid-core -c config-local.yaml"
+    "start": "trifid",
+    "start-local": "DEBUG=http,trifid:* SPARQL_ENDPOINT_URL=https://ld.zazuko.com/query trifid -c config-local.yaml"
   }
 }

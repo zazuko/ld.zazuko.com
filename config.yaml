@@ -1,5 +1,5 @@
 server:
-  logLevel: debug
+  logLevel: info
 
 template:
   title: Trifid Playground
@@ -32,9 +32,8 @@ middlewares:
     module: trifid-core/middlewares/rewrite.js
 
   entity-renderer:
-    module: "@zazuko/trifid-renderer-entity"
+    module: "@zazuko/trifid-entity-renderer"
     config:
-      path: views/entity.hbs
       labelLoader:
         labelNamespaces:
           - https://ld.zazuko.com
