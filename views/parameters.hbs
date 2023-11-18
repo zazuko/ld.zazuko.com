@@ -3,10 +3,8 @@
     <h1>Rendering</h1>
     <p>This page demonstrates distinct rendering options.</p>
 
+    <h3>Basic</h3>
     <ul>
-
-      <h3>Basic</h3>
-
       <li>
         Technical cues:
         <a href="/test/people/3?technicalCues=false">false</a>
@@ -20,8 +18,10 @@
         -
         <a href="/snippets/a3?compactMode=true">true</a>
       </li>
+    </ul>
 
-      <h3>Labels</h3>
+    <h3>Labels</h3>
+    <ul>
       <li>
         Compact mode, objects
         <a href="/snippets/a3?compactMode=false">false</a>
@@ -35,52 +35,60 @@
         -
         <a href="/snippets/a4?compactMode=true">true</a>
       </li>
+    </ul>
 
-      <h3>Lists</h3>
+    <h3>Lists</h3>
+    <ul>
       <li>
         List with
         <a
           href="/snippets/a6?compactMode=false&embedLists=false&embedBlankNodes=false"
         >compactMode=false, embedLists=false, embedBlankNodes=false</a>
       </li>
+
       <li>
         List with
         <a
           href="/snippets/a6?compactMode=false&embedLists=false&embedBlankNodes=true"
         >compactMode=false, embedLists=false, embedBlankNodes=true</a>
       </li>
+
       <li>
         List with
         <a
           href="/snippets/a6?compactMode=false&embedLists=true&embedBlankNodes=true"
         >compactMode=false, embedLists=true, embedBlankNodes=true</a>
       </li>
+
       <li>
         List with
         <a
           href="/snippets/a6?compactMode=true&embedLists=true&embedBlankNodes=true"
         >compactMode=true, embedLists=true, embedBlankNodes=true</a>
       </li>
+    </ul>
 
-      <h3>Languages</h3>
+    <h3>Languages</h3>
+    <ul>
       <li>
         <a href="/adams/eudora?highlightLanguage=fr">French</a>
         selected
       </li>
+
       <li>
         <a href="/adams/eudora?highlightLanguage=es">Spanish</a>
         selected
       </li>
+    </ul>
 
-      <li>
-        Show named graphs:
-        <a href="/test/people/3?showNamedGraphs=false">false</a>
-        -
-        <a href="/test/people/3?showNamedGraphs=true">true</a>
-      </li>
+    <h3>Named graphs</h3>
+    <ul>
+      <li><a href="/test/people/3?showNamedGraphs=false">Do not show named graphs</a></li>
+      <li><a href="/test/people/3?showNamedGraphs=true">Show named graphs</a></li>
+    </ul>
 
-      <h3>Node embedding</h3>
-
+    <h3>Node embedding</h3>
+    <ul>
       <li>
         Embed blanks:
         <a href="/wonderland/WhiteRabbit?embedBlankNodes=false">false</a>
@@ -92,46 +100,48 @@
         Example with
         <a href="/test/ladder/1">20 levels deep</a>, where maxDeep is 3.
       </li>
+
       <li>
         setting
         <a href="/test/ladder/1?maxLevel=1">maxDeep 1</a>
         will flatten the list
       </li>
+    </ul>
 
-      <h3>Redirect handler</h3>
-
+    <h3>Redirect handler</h3>
+    <ul>
       <li>
         See the
         <a
           href="/file/builds/pipelines/ld.zazuko.com/datasets/redirect.ttl"
-        >example</a></li>
+        >example</a>
+      </li>
+    </ul>
 
-      <h3>Pagination</h3>
-
+    <h3>Pagination</h3>
+    <ul>
       <li> See the example <a href="/test/people/">collection</a></li>
+    </ul>
 
-      <h3>Label loading</h3>
+    <h3>Label loading</h3>
+    <ul>
+      <li>Example of an <a href="/test/people/1">entity</a></li>
+      <li>Example of a <a href="/test/people/">collection</a></li>
+    </ul>
 
-      <p>
-        See examples of an
-        <a href="/test/people/1">entity</a>
-        and a
-        <a href="/test/people/">collection</a>
-      </p>
+    <p>
+      This instance is configured to fetch labels for entities that start with
+      "https://ld.zazuko.com", using two concurrent queries, 30 labels at a
+      time, with a maximum timeout or 1 second. It's configured to fetch
+      schema:name
+    </p>
 
-      <p>
-        This instance is configured to fetch labels for entities that start with
-        "https://ld.zazuko.com", using two concurrent queries, 30 labels at a
-        time, with a maximum timeout or 1 second. It's configured to fetch
-        schema:name
-      </p>
-
-      <h3> Feedback </h3>
+    <h3>Feedback</h3>
+    <ul>
       <li>
         Debug
-        <a href="/test/people/3?debug=true"> true</a>
+        <a href="/test/people/3?debug=true">true</a>
       </li>
-
     </ul>
 
     <p><a href="/">Go back to the homepage</a></p>
