@@ -35,8 +35,6 @@ plugins:
       resourceGraphQuery: "#pragma describe.strategy cbd\nDESCRIBE <{{iri}}>"
       containerExistsQuery: 'ASK { GRAPH ?g { ?s a ?o. FILTER REGEX(STR(?s), "^{{iri}}") } }'
       labelLoader:
-        labelNamespaces:
-          - https://ld.zazuko.com
         chunkSize: 30
         concurrency: 2
         timeout: 1000
