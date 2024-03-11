@@ -4,11 +4,11 @@
   "version": "1.2.8",
   "type": "module",
   "dependencies": {
-    "trifid": "^4.0.3"
+    "trifid": "^5.0.1"
   },
   "license": "UNLICENSED",
   "scripts": {
-    "start": "trifid",
+    "start": "trifid -c config.yaml",
     "start-local": "DEBUG=http,trifid:* SPARQL_ENDPOINT_URL=https://ld.zazuko.com/query trifid -c config-local.yaml"
   }
 }
