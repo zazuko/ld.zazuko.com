@@ -6,64 +6,62 @@ template:
 
 globals:
   datasetBaseUrl: https://ld.zazuko.com/
-  sparqlEndpoint:
-    url: env:SPARQL_ENDPOINT_URL
-    username: env:SPARQL_ENDPOINT_USER
-    password: env:SPARQL_ENDPOINT_PASSWORD
+  endpoints:
+    default:
+      url: /query
 
-middlewares:
+plugins:
   welcome:
-    module: trifid-core/middlewares/view.js
-    order: 0
+    module: trifid-core/plugins/view.js
     paths: /
     methods: GET
     config:
       path: views/welcome.hbs
 
   parameters:
-    module: trifid-core/middlewares/view.js
-    order: 0
-    paths: /parameters
+    module: trifid-core/plugins/view.js
+    paths:
+      - /parameters
+      - /parameters/
     methods: GET
     config:
       path: views/parameters.hbs
 
-  rewrite:
-    module: trifid-core/middlewares/rewrite.js
-
   entity-renderer:
     module: "@zazuko/trifid-entity-renderer"
     config:
+      followRedirects: true
+      resourceExistsQuery: "ASK { GRAPH ?g { <{{iri}}> ?p ?o } }"
+      resourceGraphQuery: "#pragma describe.strategy cbd\nDESCRIBE <{{iri}}>"
+      containerExistsQuery: 'ASK { GRAPH ?g { ?s a ?o. FILTER REGEX(STR(?s), "^{{iri}}") } }'
       labelLoader:
-        labelNamespaces:
-          - https://ld.zazuko.com
         chunkSize: 30
         concurrency: 2
         timeout: 1000
 
   yasgui:
     module: trifid-plugin-yasgui
-    paths: /sparql
+    paths:
+      - /sparql
+      - /sparql/
     config:
       urlShortener: https://s.zazuko.com/api/v1/shorten
 
+  graph-explorer:
+    module: trifid-plugin-graph-explorer
+    config:
+      dataLabelProperty: <http://schema.org/name> | rdfs:label
+      schemaLabelProperty: <http://schema.org/name> | rdfs:label
+
+  spex:
+    module: trifid-plugin-spex
+
   sparql-proxy:
     module: "@zazuko/trifid-plugin-sparql-proxy"
-    paths: /query
+    paths:
+      - /query
+      - /query/
     config:
-      queryOperation: postQueryUrlencoded
-      cache:
-        prefix: env:SPARQL_PROXY_CACHE_PREFIX
-        url: env:SPARQL_PROXY_CACHE_URL
-        ttl: env:SPARQL_PROXY_CACHE_TTL
-        clearAtStartup: env:SPARQL_PROXY_CACHE_CLEAR_AT_STARTUP
-
-  handle-redirects-demo:
-    module: "@zazuko/trifid-handle-redirects"
-
-  sparql-handler:
-    module: "trifid-handler-sparql"
-    config:
-      resourceExistsQuery: "ASK { GRAPH ?g { <${iri}> ?p ?o } }"
-      resourceGraphQuery: "#pragma describe.strategy cbd\nDESCRIBE <${iri}>"
-      containerExistsQuery: 'ASK { GRAPH ?g { ?s a ?o. FILTER REGEX(STR(?s), "^${iri}") } }'
+      endpointUrl: env:SPARQL_ENDPOINT_URL
+      username: env:SPARQL_ENDPOINT_USER
+      password: env:SPARQL_ENDPOINT_PASSWORD
